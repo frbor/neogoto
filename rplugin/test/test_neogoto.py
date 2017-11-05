@@ -33,8 +33,14 @@ class TestNeoGotoPlugin(unittest.TestCase):
         self.assertEqual(self.__cursor_pos(), [1,0])
 
         self.plugin.next([])
-        # self.nvim.command("NeoGotoNext")
-        self.assertEqual(self.__cursor_pos(), [2,3])
+        #self.nvim.command(":NeoGotoNext")
+        self.assertEqual(self.__cursor_pos(), [2,4])
 
         self.plugin.next([])
-        self.assertEqual(self.__cursor_pos(), [4,4])
+        self.assertEqual(self.__cursor_pos(), [3,5])
+
+        self.plugin.next([])
+        self.assertEqual(self.__cursor_pos(), [5,10])
+
+        self.plugin.next([])
+        self.assertEqual(self.__cursor_pos(), [7,1])

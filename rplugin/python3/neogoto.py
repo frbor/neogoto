@@ -28,8 +28,6 @@ class NeoGotoPlugin(object):
 
         search_lines = [i for i in range(cursor_y, len(buf))] + [i for i in range(0, cursor_y + 1)]
 
-        print(search_lines)
-
         # Search from current line to end, then from start to current line
         for line_i in search_lines:
             line = buf[line_i]
@@ -44,4 +42,5 @@ class NeoGotoPlugin(object):
                         line_i + 1,
                         line.index(match_text) + len(match_text)
                     ])
+                    self.nvim.feedkeys("a")
                     return
